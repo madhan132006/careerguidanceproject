@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CareerPro – AI Powered Career Guidance and Talent Assessment Platform</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <style>
+      /* Page-specific inline enhancements for maximum visual polish */
+      .hero-section {
+        position: relative;
+        overflow: hidden;
+        padding-top: 140px;
+        padding-bottom: 100px;
+        background-color: #F8FAFC;
+      }
+      
+      .circle-decorator {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(6, 182, 212, 0.05));
+        pointer-events: none;
+      }
+
+      /* Animated Line Graph inside simulated dashboard */
+      .animated-line-path {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: draw-line 4s ease-out infinite;
+      }
+
+      @keyframes draw-line {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      /* Technology card hover glow */
+      .tech-card {
+        transition: var(--transition-smooth);
+        border: 1px solid var(--gray-medium);
+        background: var(--white);
+        border-radius: 14px;
+      }
+      .tech-card:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 15px 30px rgba(79, 70, 229, 0.1);
+        border-color: rgba(79, 70, 229, 0.3);
+      }
+
+      /* Animated underlines in sections */
+      .section-divider-line {
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--blue-primary), var(--blue-accent));
+        border-radius: 2px;
+        margin: 15px auto 0 auto;
+      }
+
+      .section-divider-left {
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--blue-primary), var(--blue-accent));
+        border-radius: 2px;
+        margin-top: 12px;
+        margin-bottom: 25px;
+      }
+
+      /* Review card rating stars custom styling */
+      .rating-stars i {
+        color: #F59E0B;
+        font-size: 14px;
+        margin-right: 2px;
+      }
+
+      /* Interactive Floating Indicator Badge */
+      .floating-badge {
+        animation: float-badge 3.5s infinite alternate ease-in-out;
+      }
+
+      @keyframes float-badge {
+        0% { transform: translateY(0px) scale(1); }
+        100% { transform: translateY(-10px) scale(1.02); }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Dynamic Background Blur Blobs (SaaS aesthetic) -->
+    <div class="bg-blob bg-blob-primary"></div>
+    <div class="bg-blob bg-blob-secondary"></div>
+    <div class="bg-blob bg-blob-accent"></div>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold fs-4" href="/index.html">
+          <div class="d-flex align-items-center justify-content-center bg-gradient-primary rounded-3 text-white" style="width: 42px; height: 42px; background: linear-gradient(135deg, #2563EB, #4F46E5); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <span style="font-family: 'Poppins', sans-serif; font-weight: 800; letter-spacing: -0.03em; color: var(--navy-dark)">CareerPro</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#landingNavbar" aria-controls="landingNavbar" aria-expanded="false" aria-label="Toggle navigation" style="box-shadow: none;">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="landingNavbar">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1">
+            <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="#technology">Technology</a></li>
+            <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+            <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+          <div class="d-flex align-items-center gap-3">
+            <a href="/pages/login.html" class="btn btn-premium-secondary px-4"><i class="fa-solid fa-right-to-bracket me-2"></i>Login</a>
+            <a href="/pages/register.html" class="btn btn-premium-primary px-4 shadow-sm"><i class="fa-solid fa-user-plus me-2"></i>Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="hero-section">
+      <!-- Background subtle shapes -->
+      <div class="circle-decorator" style="width: 300px; height: 300px; top: -150px; right: 5%; filter: blur(40px);"></div>
+      <div class="circle-decorator" style="width: 150px; height: 150px; bottom: 10%; left: 5%; filter: blur(20px);"></div>
+
+      <div class="container fade-in">
+        <div class="row align-items-center g-5">
+          <!-- Hero Text Column -->
+          <div class="col-lg-6">
+            <span class="badge px-3 py-2 rounded-pill mb-3 floating-badge" style="background: rgba(37, 99, 235, 0.08); color: var(--blue-primary); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; border: 1px solid rgba(37, 99, 235, 0.15)">
+              <i class="fa-solid fa-star-of-life-direct text-info me-2 anim-spin-slow"></i>AI-Powered Career Intelligence
+            </span>
+            <h1 class="hero-title mb-3">
+              AI-Powered <span class="text-gradient-primary">Career Intelligence</span>
+            </h1>
+            <h3 class="h4 text-muted fw-semibold mb-3" style="font-family: 'Poppins', sans-serif; font-weight: 600; color: var(--blue-secondary) !important;">
+              Map Your Skills. Unlock Your True Career Potential.
+            </h3>
+            <p class="body-text-custom mb-4" style="color: var(--gray-dark); font-size: 17px; font-weight: 400;">
+              CareerPro empowers students through AI-driven career guidance, adaptive assessments, premium resume generation, and personalized learning paths to accelerate placement success.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="/pages/register.html" class="btn btn-premium-primary btn-lg px-5 py-3 shadow"><i class="fa-solid fa-bolt me-2"></i>Get Started</a>
+              <a href="#about" class="btn btn-premium-secondary btn-lg px-4 py-3"><i class="fa-solid fa-circle-play me-2"></i>Watch Demo</a>
+            </div>
+          </div>
+
+          <!-- Hero Right-side Simulated Dashboard Visualization -->
+          <div class="col-lg-6">
+            <div class="position-relative p-2" style="z-index: 5;">
+              <div class="mock-dashboard">
+                <!-- Dashboard Header Bar -->
+                <div class="mock-dashboard-header">
+                  <div class="mock-dot red"></div>
+                  <div class="mock-dot yellow"></div>
+                  <div class="mock-dot green"></div>
+                  <span style="color: #94a3b8; font-size: 12px; font-family: 'Inter', sans-serif; font-weight: 500; margin-left: 8px;">CareerPro Intel Engine v2.5.0</span>
+                  <div class="mock-tab">HOST: LOCALHOST:3000</div>
+                </div>
+
+                <!-- Dashboard Content Grid -->
+                <div class="p-4" style="background: #0f172a; min-height: 400px; display: flex; flex-direction: column; gap: 4px;">
+                  
+                  <div class="row g-3">
+                    <!-- Left stats block -->
+                    <div class="col-md-7">
+                      <!-- Placement Probability graph card -->
+                      <div class="p-3 rounded-3 mb-3" style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.05);">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                          <span style="color: #94a3b8; font-size: 12px; font-weight: 500;">PLACEMENT VELOCITY INDEX</span>
+                          <span class="badge bg-success text-white" style="font-size: 10px;">+18.4%</span>
+                        </div>
+                        <h4 style="color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 8px;">94.2% Match</h4>
+                        <!-- Simulated Chart Grid SVG -->
+                        <div style="height: 100px;">
+                          <svg viewBox="0 0 300 100" class="w-100 h-100">
+                            <!-- Grid lines -->
+                            <line x1="0" y1="20" x2="300" y2="20" stroke="rgba(255,255,255,0.03)" />
+                            <line x1="0" y1="50" x2="300" y2="50" stroke="rgba(255,255,255,0.03)" />
+                            <line x1="0" y1="80" x2="300" y2="80" stroke="rgba(255,255,255,0.03)" />
+                            <!-- Line Graph Path -->
+                            <path d="M0,90 Q50,40 100,70 T200,30 T300,10" fill="none" stroke="url(#gradient)" stroke-width="3.5" class="animated-line-path" />
+                            <!-- Gradients definitions -->
+                            <defs>
+                              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#2563EB" />
+                                <stop offset="50%" stop-color="#4F46E5" />
+                                <stop offset="100%" stop-color="#06B6D4" />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                        </div>
+                      </div>
+
+                      <!-- Skill Progress Visualization -->
+                      <div class="p-3 rounded-3" style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.05);">
+                        <span style="color: #94a3b8; font-size: 11px; font-weight: 600; display: block; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">ADAPTIVE TALENT VECTORS</span>
+                        
+                        <!-- Java/Spring -->
+                        <div class="mb-2">
+                          <div class="d-flex justify-content-between text-white" style="font-size: 11px; margin-bottom: 2px;">
+                            <span>Java Core & Spring Boot</span>
+                            <span style="color: var(--blue-accent)">88%</span>
+                          </div>
+                          <div class="progress" style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px;">
+                            <div class="progress-bar" style="width: 88%; background: linear-gradient(90deg, #2563EB, #06B6D4); border-radius: 3px;"></div>
+                          </div>
+                        </div>
+
+                        <!-- System Architectures -->
+                        <div class="mb-2">
+                          <div class="d-flex justify-content-between text-white" style="font-size: 11px; margin-bottom: 2px;">
+                            <span>System Design / Databases</span>
+                            <span style="color: #10B981">92%</span>
+                          </div>
+                          <div class="progress" style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px;">
+                            <div class="progress-bar" style="width: 92%; background: linear-gradient(90deg, #10B981, #2563EB); border-radius: 3px;"></div>
+                          </div>
+                        </div>
+
+                        <!-- Full Stack Modules -->
+                        <div>
+                          <div class="d-flex justify-content-between text-white" style="font-size: 11px; margin-bottom: 2px;">
+                            <span>Full-Stack & Web Architectures</span>
+                            <span style="color: var(--blue-secondary)">85%</span>
+                          </div>
+                          <div class="progress" style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px;">
+                            <div class="progress-bar" style="width: 85%; background: linear-gradient(90deg, #4F46E5, #06B6D4); border-radius: 3px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Right columns mini cards -->
+                    <div class="col-md-5">
+                      <!-- Career Recommendation Card -->
+                      <div class="p-3 rounded-3 mb-3 text-white text-center d-flex flex-column align-items-center justify-content-center" style="background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(6, 182, 212, 0.1)); border: 1px solid rgba(255, 255, 255, 0.1); min-height: 140px;">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle bg-primary text-white mb-2" style="width: 36px; height: 36px; background: #2563EB !important; box-shadow: 0 4px 10px rgba(37,99,235,0.3)">
+                          <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <span style="font-size: 10px; color: #94a3b8; font-weight: 500;">SUGGESTED PATH</span>
+                        <h6 class="fw-bold mb-1" style="font-size: 14px;">Full Stack Engineer</h6>
+                        <span style="font-size: 12px; color: #06B6D4; font-weight: bold;">98% Match compatibility</span>
+                      </div>
+
+                      <!-- Resume Match Preview Card -->
+                      <div class="p-3 rounded-3 text-white" style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.05); min-height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <!-- Radial Circular progress -->
+                        <div class="position-relative mb-2 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                          <svg class="w-100 h-100" style="transform: rotate(-90deg);">
+                            <circle cx="30" cy="30" r="24" fill="transparent" stroke="rgba(255,255,255,0.05)" stroke-width="4" />
+                            <circle cx="30" cy="30" r="24" fill="transparent" stroke="#10B981" stroke-width="4" stroke-dasharray="150" stroke-dashoffset="15" />
+                          </svg>
+                          <span class="position-absolute" style="font-size: 12px; font-weight: bold; color: #10B981;">94%</span>
+                        </div>
+                        <span style="font-size: 11px; color: #94a3b8; font-weight: 500; text-transform: uppercase;">ATS Score</span>
+                        <span style="font-size: 12px; color: #ffffff; text-align: center; margin-top: 4px;">Premium Resume Optimized</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Quick logs block at bottom -->
+                  <div class="mt-3 p-2 rounded-3 text-white d-flex align-items-center gap-2" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); font-family: monospace; font-size: 10px;">
+                    <span class="text-success"><i class="fa-solid fa-circle-check"></i></span>
+                    <span style="color: #94a3b8;">System: Candidate skills analyzed successfully. Aptitude matching fully online.</span>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Decorative floating elements around the dashboard -->
+              <div class="glass-card position-absolute p-3 rounded-4 shadow d-flex align-items-center gap-3 floating-badge" style="bottom: -20px; left: -30px; z-index: 10; width: 220px;">
+                <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3)">
+                  <i class="fa-solid fa-circle-check fs-5"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-0" style="font-size: 14px; color: var(--navy-dark)">Placement Success</h6>
+                  <span style="font-size: 11px; color: var(--gray-dark)">95% Confirmed ratio</span>
+                </div>
+              </div>
+
+              <div class="glass-card position-absolute p-3 rounded-4 shadow d-flex align-items-center gap-3 floating-badge" style="top: -20px; right: -20px; z-index: 10; width: 190px; animation-delay: 1.5s;">
+                <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; box-shadow: 0 4px 10px rgba(6, 182, 212, 0.3)">
+                  <i class="fa-solid fa-bolt fs-5"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-0" style="font-size: 14px; color: var(--navy-dark)">ATS Certified</h6>
+                  <span style="font-size: 11px; color: var(--gray-dark)">Optimized Layout</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-white position-relative" style="overflow: hidden;">
+      <div class="container py-5">
+        <div class="row align-items-center g-5">
+          <!-- Left side dynamic node chart representation -->
+          <div class="col-lg-6">
+            <div class="position-relative p-4 rounded-4" style="background: linear-gradient(135deg, rgba(37,99,235,0.03), rgba(79,70,229,0.03)); border: 1px solid var(--gray-medium);">
+              <!-- Beautiful decorative map/graph representation -->
+              <div class="text-center py-4 mb-2">
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-arrows-spin me-2"></i>INTELLIGENT RECRUITING PIPELINE</h5>
+                <!-- Dynamic grid represent node matching -->
+                <div class="d-flex flex-column gap-3 max-w-sm mx-auto">
+                  <div class="glass-card p-3 d-flex align-items-center justify-content-between">
+                    <span style="font-size: 14px; font-weight: 600;"><i class="fa-solid fa-id-card text-info me-2"></i>Aptitude Matrix</span>
+                    <span class="badge bg-success">50+ Tests Online</span>
+                  </div>
+                  <div class="text-center opacity-70"><i class="fa-solid fa-arrow-down-long fs-5 text-primary"></i></div>
+                  <div class="glass-card p-3 d-flex align-items-center justify-content-between" style="border-left: 4px solid var(--blue-secondary) !important;">
+                    <span style="font-size: 14px; font-weight: 600;"><i class="fa-solid fa-road text-primary me-2"></i>Curated Roadmap</span>
+                    <span class="badge bg-primary">Adaptive Stages</span>
+                  </div>
+                  <div class="text-center opacity-70"><i class="fa-solid fa-arrow-down-long fs-5 text-primary"></i></div>
+                  <div class="glass-card p-3 d-flex align-items-center justify-content-between">
+                    <span style="font-size: 14px; font-weight: 600;"><i class="fa-solid fa-file-pdf text-danger me-2"></i>ATS-Optimized CV</span>
+                    <span class="badge bg-info">100% Downloadable</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Absolute Stats floating circle -->
+              <div class="position-absolute bg-white p-3 rounded-circle shadow d-flex align-items-center justify-content-center border" style="width: 80px; height: 80px; bottom: 15px; right: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important;">
+                <div class="text-center">
+                  <h6 class="fw-bold mb-0 text-primary">95%</h6>
+                  <span style="font-size: 8px; font-weight: bold; color: var(--gray-dark); text-transform: uppercase;">Placed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side rich content with stats -->
+          <div class="col-lg-6">
+            <span class="badge px-3 py-1.5 rounded-pill mb-2" style="background: rgba(79, 70, 229, 0.08); color: var(--blue-secondary); font-weight: bold; font-size: 13px;">ABOUT CAREERPRO</span>
+            <h2 class="section-title mt-2">Empowering the Next Generation of Technical Talents</h2>
+            <div class="section-divider-left"></div>
+            <p class="body-text-custom mb-4" style="font-size: 17px;">
+              CareerPro is a comprehensive, client-first digital platform engineered to bridge the gap between academic accomplishments and industrial demands. By utilizing dynamic intelligence matrices, we evaluate developer capabilities, provide complete learning paths, and supply actionable job opportunities.
+            </p>
+
+            <!-- Statistics Grid matching design details -->
+            <div class="row g-4 mt-2">
+              <div class="col-sm-6">
+                <div class="glass-card p-3 h-100 text-center text-sm-start d-flex flex-column justify-content-center" style="border-radius: var(--border-radius-md) !important; background: rgba(248, 250, 252, 0.6) !important;">
+                  <h3 class="fw-bold text-primary mb-1" style="font-family: 'Poppins', sans-serif; font-size: 32px; letter-spacing: -1px;">95%</h3>
+                  <h6 class="fw-semibold text-dark mb-1" style="font-size: 15px;">Placement Success</h6>
+                  <p class="text-muted small mb-0">Highly compatible skill-to-role matching parameters.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="glass-card p-3 h-100 text-center text-sm-start d-flex flex-column justify-content-center" style="border-radius: var(--border-radius-md) !important; background: rgba(248, 250, 252, 0.6) !important;">
+                  <h3 class="fw-bold text-secondary mb-1" style="font-family: 'Poppins', sans-serif; font-size: 32px; letter-spacing: -1px;">50+</h3>
+                  <h6 class="fw-semibold text-dark mb-1" style="font-size: 15px;">Aptitude Assessments</h6>
+                  <p class="text-muted small mb-0">Professional adaptive evaluations tailored for developers.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="glass-card p-3 h-100 text-center text-sm-start d-flex flex-column justify-content-center" style="border-radius: var(--border-radius-md) !important; background: rgba(248, 250, 252, 0.6) !important;">
+                  <h3 class="fw-bold text-info mb-1" style="font-family: 'Poppins', sans-serif; font-size: 32px; letter-spacing: -1px;">100+</h3>
+                  <h6 class="fw-semibold text-dark mb-1" style="font-size: 15px;">Learning Modules</h6>
+                  <p class="text-muted small mb-0">Curriculums covering backend, DSA, and modern frameworks.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="glass-card p-3 h-100 text-center text-sm-start d-flex flex-column justify-content-center" style="border-radius: var(--border-radius-md) !important; background: rgba(248, 250, 252, 0.6) !important;">
+                  <h3 class="fw-bold text-success mb-1" style="font-family: 'Poppins', sans-serif; font-size: 32px; letter-spacing: -1px;">10+</h3>
+                  <h6 class="fw-semibold text-dark mb-1" style="font-size: 15px;">Core Career Paths</h6>
+                  <p class="text-muted small mb-0">From cloud architectures to modern software design tracks.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Highlights -->
+    <section id="features" class="py-5" style="background-color: #F8FAFC;">
+      <div class="container py-5">
+        <div class="text-center max-w-2xl mx-auto mb-5">
+          <span class="badge px-3 py-1.5 rounded-pill mb-2" style="background: rgba(37, 99, 235, 0.08); color: var(--blue-primary); font-weight: bold; font-size: 13px;">CORE MODULES</span>
+          <h2 class="section-title mt-2">Engineered Modules for Placement Success</h2>
+          <div class="section-divider-line"></div>
+          <p class="body-text-custom mt-3">A fully loaded ecosystem featuring every module needed to assess, map, design, and optimize your engineering career path.</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Card 1: Talent Assessment -->
+          <div class="col-md-4">
+            <div class="glass-card p-4 h-100 d-flex flex-column text-start position-relative">
+              <div class="d-flex align-items-center justify-content-center rounded-3 bg-gradient-primary text-white mb-4" style="width: 54px; height: 54px; background: linear-gradient(135deg, #2563EB, #06B6D4); box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);">
+                <i class="fa-solid fa-circle-check fs-4"></i>
+              </div>
+              <h4 class="card-title-custom mb-3" style="color: var(--navy-dark); font-size: 24px; font-weight: 700;">Talent Assessment</h4>
+              <p class="body-text-custom small mb-0" style="font-size: 15px; color: var(--gray-dark)">Adaptive technical aptitude, psychometrics, logical reasonings, and coding compilers evaluating professional competencies.</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Learning Roadmap -->
+          <div class="col-md-4">
+            <div class="glass-card p-4 h-100 d-flex flex-column text-start position-relative">
+              <div class="d-flex align-items-center justify-content-center rounded-3 text-white mb-4" style="width: 54px; height: 54px; background: linear-gradient(135deg, #4F46E5, #2563EB); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2);">
+                <i class="fa-solid fa-road fs-4"></i>
+              </div>
+              <h4 class="card-title-custom mb-3" style="color: var(--navy-dark); font-size: 24px; font-weight: 700;">Learning Roadmap</h4>
+              <p class="body-text-custom small mb-0" style="font-size: 15px; color: var(--gray-dark)">Curated curriculum sequences, milestone checklists, recommended learning repositories, and practice mock links.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Resume Builder -->
+          <div class="col-md-4">
+            <div class="glass-card p-4 h-100 d-flex flex-column text-start position-relative">
+              <div class="d-flex align-items-center justify-content-center rounded-3 text-white mb-4" style="width: 54px; height: 54px; background: linear-gradient(135deg, #06B6D4, #4F46E5); box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);">
+                <i class="fa-solid fa-file-pdf fs-4"></i>
+              </div>
+              <h4 class="card-title-custom mb-3" style="color: var(--navy-dark); font-size: 24px; font-weight: 700;">Resume Builder</h4>
+              <p class="body-text-custom small mb-0" style="font-size: 15px; color: var(--gray-dark)">Dynamic, elegant, side-by-side template configurations updating visual previews and compiling printable system PDFs instantly.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Career Recommendation -->
+          <div class="col-md-4">
+            <div class="glass-card p-4 h-100 d-flex flex-column text-start position-relative">
+              <div class="d-flex align-items-center justify-content-center rounded-3 text-white mb-4" style="width: 54px; height: 54px; background: linear-gradient(135deg, #2563EB, #4F46E5); box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2)">
+                <i class="fa-solid fa-brain fs-4"></i>
+              </div>
+              <h4 class="card-title-custom mb-3" style="color: var(--navy-dark); font-size: 24px; font-weight: 700;">Career Recommendation</h4>
+              <p class="body-text-custom small mb-0" style="font-size: 15px; color: var(--gray-dark)">Multi-criteria intelligent fit matches mapping profile tags to role benchmarks, calculating compatibility scores, and projecting target salaries.</p>
+            </div>
+          </div>
+
+          <!-- Card 5: Mock Interview -->
+          <div class="col-md-4">
+            <div class="glass-card p-4 h-100 d-flex flex-column text-start position-relative">
+              <div class="d-flex align-items-center justify-content-center rounded-3 text-white mb-4" style="width: 54px; height: 54px; background: linear-gradient(135deg, #4F46E5, #06B6D4); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2)">
+                <i class="fa-solid fa-comments fs-4"></i>
+              </div>
+              <h4 class="card-title-custom mb-3" style="color: var(--navy-dark); font-size: 24px; font-weight: 700;">Mock Interview</h4>
+              <p class="body-text-custom small mb-0" style="font-size: 15px; color: var(--gray-dark)">Adaptive conversational interview simulators with custom behavior matrices, logical code drills, and detailed evaluation feedback.</p>
+            </div>
+          </div>
+
+          <!-- Card 6: Placement Analytics -->
+          <div class="col-md-4">
+            <div class="glass-card p-4 h-100 d-flex flex-column text-start position-relative">
+              <div class="d-flex align-items-center justify-content-center rounded-3 text-white mb-4" style="width: 54px; height: 54px; background: linear-gradient(135deg, #06B6D4, #2563EB); box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2)">
+                <i class="fa-solid fa-chart-pie fs-4"></i>
+              </div>
+              <h4 class="card-title-custom mb-3" style="color: var(--navy-dark); font-size: 24px; font-weight: 700;">Placement Analytics</h4>
+              <p class="body-text-custom small mb-0" style="font-size: 15px; color: var(--gray-dark)">Comprehensive metrics dashboard monitoring curriculum coverage percentages, test milestones scores, and targeted vacancy predictions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Highlights -->
+    <section id="technology" class="py-5 bg-white">
+      <div class="container py-5">
+        <div class="text-center max-w-2xl mx-auto mb-5">
+          <span class="badge px-3 py-1.5 rounded-pill mb-2" style="background: rgba(6, 182, 212, 0.08); color: var(--blue-accent); font-weight: bold; font-size: 13px;">ARCHITECTURAL STACK</span>
+          <h2 class="section-title mt-2">Built with Modern High-Performance Technologies</h2>
+          <div class="section-divider-line"></div>
+          <p class="body-text-custom mt-3">An enterprise-level tech stack designed for security, dynamic capabilities, and high-performance placement analytics.</p>
+        </div>
+
+        <div class="row g-4 text-center justify-content-center">
+          <!-- 12 Float styled cards representing requested technical skills -->
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="tech-card p-3 h-100 tech-card-float-1">
+              <i class="fa-brands fa-html5 text-danger display-5 mb-2"></i>
+              <h6 class="fw-bold text-dark mb-0" style="font-size: 14px;">HTML5</h6>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="tech-card p-3 h-100 tech-card-float-2">
+              <i class="fa-brands fa-css3-alt text-primary display-5 mb-2"></i>
+              <h6 class="fw-bold text-dark mb-0" style="font-size: 14px;">CSS3</h6>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="tech-card p-3 h-100 tech-card-float-1">
+              <i class="fa-brands fa-bootstrap text-purple display-5 mb-2" style="color: #6f42c1;"></i>
+              <h6 class="fw-bold text-dark mb-0" style="font-size: 14px;">Bootstrap</h6>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="tech-card p-3 h-100 tech-card-float-2">
+              <i class="fa-brands fa-js text-warning display-5 mb-2"></i>
+              <h6 class="fw-bold text-dark mb-0" style="font-size: 14px;">JavaScript</h6>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="tech-card p-3 h-100 tech-card-float-1">
+              <i class="fa-brands fa-java text-danger display-5 mb-2" style="color: #f89820 !important;"></i>
+              <h6 class="fw-bold text-dark mb-0" style="font-size: 14px;">Java</h6>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="tech-card p-3 h-100 tech-card-float-2">
+              <div class="d-flex align-items-center justify-content-center text-success display-5 mb-2" style="height: 48px;">
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+              <h6 class="fw-bold text-dark mb-0" style="font-size: 14px;">Spring Boot</h6>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="tech-card p-3 h-100 tech-card-float-1">
+              <i class="fa-solid fa-database text-primary display-5 mb-2" style="color: #00758f !important;"></i>
+              <h6 class="fw-bold text-dark mb-0" style="font-size: 14px;">MySQL</h6>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="tech-card p-3 h-100 tech-card-float-2">
+              <div class="d-flex align-items-center justify-content-center text-secondary display-5 mb-2" style="height: 48px; color: #000 !important;">
+                <span class="fw-black fs-5 bg-dark text-white px-2 py-0.5 rounded" style="font-size: 12px !important; font-family: sans-serif;">JWT</span>
+              </div>
+              <h6 class="fw-bold text-dark mb-0" style="font-size: 14px;">JWT Auth</h6>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="tech-card p-3 h-100 tech-card-float-1">
+              <i class="fa-solid fa-shield-halved text-success display-5 mb-2"></i>
+              <h6 class="fw-bold text-dark mb-0" style="font-size: 14px;">Spring Sec</h6>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="tech-card p-3 h-100 tech-card-float-2">
+              <div class="d-flex align-items-center justify-content-center text-success display-5 mb-2" style="height: 48px; color: #85ea2d !important;">
+                <i class="fa-solid fa-circle-nodes"></i>
+              </div>
+              <h6 class="fw-bold text-dark mb-0" style="font-size: 14px;">Swagger</h6>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="tech-card p-3 h-100 tech-card-float-1">
+              <i class="fa-brands fa-git-alt text-danger display-5 mb-2" style="color: #f05032 !important;"></i>
+              <h6 class="fw-bold text-dark mb-0" style="font-size: 14px;">Git</h6>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="tech-card p-3 h-100 tech-card-float-2">
+              <i class="fa-brands fa-github text-dark display-5 mb-2"></i>
+              <h6 class="fw-bold text-dark mb-0" style="font-size: 14px;">GitHub</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials / Student Reviews -->
+    <section id="testimonials" class="py-5" style="background-color: #F8FAFC;">
+      <div class="container py-5">
+        <div class="text-center max-w-2xl mx-auto mb-5">
+          <span class="badge px-3 py-1.5 rounded-pill mb-2" style="background: rgba(37, 99, 235, 0.08); color: var(--blue-primary); font-weight: bold; font-size: 13px;">STUDENT SUCCESS</span>
+          <h2 class="section-title mt-2">Success Stories from Our Placed Talents</h2>
+          <div class="section-divider-line"></div>
+          <p class="body-text-custom mt-3">Read how engineering students accelerated their technical placements with CareerPro assessments and resume templates.</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Review 1 -->
+          <div class="col-md-4">
+            <div class="glass-card p-4 h-100 d-flex flex-column text-start position-relative overflow-hidden">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=80" alt="Review User" class="rounded-circle border" style="width: 52px; height: 52px; object-fit: cover;" referrerPolicy="no-referrer">
+                <div>
+                  <h6 class="fw-bold text-dark mb-0" style="font-size: 16px;">Vikram Sen</h6>
+                  <span class="text-muted small">Placed at <strong style="color: var(--blue-secondary);">AWS</strong></span>
+                </div>
+              </div>
+              <div class="rating-stars mb-3">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="body-text-custom text-muted small mb-0" style="font-size: 15px;">"The assessment modules matched the actual cloud engineer interview syllabus perfectly. The resume builder is incredibly intuitive and professional! The final exported PDF scanned perfectly through top ATS systems."</p>
+              <i class="fa-solid fa-quote-right quote-icon-watermark"></i>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="col-md-4">
+            <div class="glass-card p-4 h-100 d-flex flex-column text-start position-relative overflow-hidden">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80" alt="Review User" class="rounded-circle border" style="width: 52px; height: 52px; object-fit: cover;" referrerPolicy="no-referrer">
+                <div>
+                  <h6 class="fw-bold text-dark mb-0" style="font-size: 16px;">Ananya Nair</h6>
+                  <span class="text-muted small">Placed at <strong style="color: var(--blue-secondary);">Google</strong></span>
+                </div>
+              </div>
+              <div class="rating-stars mb-3">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="body-text-custom text-muted small mb-0" style="font-size: 15px;">"Loved the learning roadmaps! Being able to mark stage checkboxes and track curriculum coverage visually kept me organized throughout final placement rounds. Strongly recommended for every computer science applicant."</p>
+              <i class="fa-solid fa-quote-right quote-icon-watermark"></i>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="col-md-4">
+            <div class="glass-card p-4 h-100 d-flex flex-column text-start position-relative overflow-hidden">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&auto=format&fit=crop&q=80" alt="Review User" class="rounded-circle border" style="width: 52px; height: 52px; object-fit: cover;" referrerPolicy="no-referrer">
+                <div>
+                  <h6 class="fw-bold text-dark mb-0" style="font-size: 16px;">Kabir Mehta</h6>
+                  <span class="text-muted small">Placed at <strong style="color: var(--blue-secondary);">Stripe</strong></span>
+                </div>
+              </div>
+              <div class="rating-stars mb-3">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="body-text-custom text-muted small mb-0" style="font-size: 15px;">"Dynamic suitability matcher led me to specialize as a Full Stack Developer. Combined with the side-by-side dynamic resume layouts builder, I secured an engineering internship within 3 weeks of registration!"</p>
+              <i class="fa-solid fa-quote-right quote-icon-watermark"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="py-5 bg-white">
+      <div class="container py-5">
+        <div class="text-center max-w-2xl mx-auto mb-5">
+          <span class="badge px-3 py-1.5 rounded-pill mb-2" style="background: rgba(37, 99, 235, 0.08); color: var(--blue-primary); font-weight: bold; font-size: 13px;">FAQ PORTAL</span>
+          <h2 class="section-title mt-2">Frequently Asked Inquiries</h2>
+          <div class="section-divider-line"></div>
+        </div>
+
+        <div class="row max-w-3xl mx-auto">
+          <div class="col-lg-12">
+            <div class="accordion" id="faqAccordion">
+              
+              <!-- Accordion item 1 -->
+              <div class="accordion-item mb-3 rounded-4 overflow-hidden border" style="border: 1px solid var(--gray-medium) !important;">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button rounded-4 fw-bold text-dark py-3.5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="background: rgba(248, 250, 252, 0.6); box-shadow: none;">
+                    How does the dynamic Career Matcher work?
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-muted py-3.5" style="font-size: 15px; line-height: 1.6;">
+                    Our platform compares your current technical certifications, academic details, and added skills against active corporate profiles, calculating real-time matching statistics, skill delta lists, and industry salary projections.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accordion item 2 -->
+              <div class="accordion-item mb-3 rounded-4 overflow-hidden border" style="border: 1px solid var(--gray-medium) !important;">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed rounded-4 fw-bold text-dark py-3.5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background: rgba(248, 250, 252, 0.6); box-shadow: none;">
+                    Is the Resume Builder PDF export free?
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-muted py-3.5" style="font-size: 15px; line-height: 1.6;">
+                    Yes, the resume builder is fully client-side and free. You can edit credentials in real-time, preview professional layout margins, and print clean system PDFs directly using standard controls with absolute privacy.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-5 bg-light" style="background-color: #F8FAFC !important;">
+      <div class="container py-5">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5 text-start">
+            <span class="badge px-3 py-1.5 rounded-pill mb-2" style="background: rgba(37, 99, 235, 0.08); color: var(--blue-primary); font-weight: bold; font-size: 13px;">CONNECT WITH US</span>
+            <h2 class="section-title mt-2">Let's Connect & Solve Together</h2>
+            <div class="section-divider-left"></div>
+            <p class="body-text-custom mb-4" style="font-size: 16px;">
+              Have a query or feature suggestion for our Career Guidance platform? Drop us an inquiry or visit our research development lab.
+            </p>
+            <ul class="list-unstyled mt-4 d-flex flex-column gap-3">
+              <li class="d-flex align-items-center gap-3 bg-white p-3 rounded-3 border">
+                <div class="d-flex align-items-center justify-content-center rounded bg-primary text-white" style="width: 40px; height: 40px; background: #2563EB !important;">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-0" style="font-size: 14px; color: var(--navy-dark)">Our Location</h6>
+                  <span class="text-muted small">NIT Campus, Tamil Nadu, IN</span>
+                </div>
+              </li>
+              <li class="d-flex align-items-center gap-3 bg-white p-3 rounded-3 border">
+                <div class="d-flex align-items-center justify-content-center rounded bg-success text-white" style="width: 40px; height: 40px; background: #10B981 !important;">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-0" style="font-size: 14px; color: var(--navy-dark)">Inquiries Mailbox</h6>
+                  <span class="text-muted small">support@careerpro.org</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-7">
+            <div class="glass-card p-4 p-md-5">
+              <h4 class="fw-bold text-dark mb-4 text-start"><i class="fa-solid fa-paper-plane me-2 text-primary"></i>Send an Inquiry</h4>
+              <form id="contact-form">
+                <div class="row g-3 text-start">
+                  <div class="col-md-6">
+                    <label class="form-label text-dark fw-semibold small mb-1">Full Name</label>
+                    <input type="text" class="form-control rounded-3 py-2.5 border-gray-medium" placeholder="E.g. Vikram Nair" required style="box-shadow: none; border-radius: 8px !important;">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-dark fw-semibold small mb-1">Email Address</label>
+                    <input type="email" class="form-control rounded-3 py-2.5 border-gray-medium" placeholder="E.g. vikram@nit.edu" required style="box-shadow: none; border-radius: 8px !important;">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label text-dark fw-semibold small mb-1">Subject</label>
+                    <input type="text" class="form-control rounded-3 py-2.5 border-gray-medium" placeholder="E.g. Resume Customization Inquiry" required style="box-shadow: none; border-radius: 8px !important;">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label text-dark fw-semibold small mb-1">Message Details</label>
+                    <textarea class="form-control rounded-3 border-gray-medium" rows="4" placeholder="Tell us how we can assist you..." required style="box-shadow: none; border-radius: 8px !important;"></textarea>
+                  </div>
+                  <div class="col-12 mt-4 text-start">
+                    <button type="submit" class="btn btn-premium-primary px-5 py-3 shadow"><i class="fa-solid fa-paper-plane me-2"></i>Send Message</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5" style="background-color: #0F172A; border-top: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <div class="row g-4 justify-content-between mb-5 text-start">
+          <div class="col-lg-4">
+            <a class="d-flex align-items-center gap-2 fw-bold fs-4 mb-3 text-white" href="/index.html" style="text-decoration: none;">
+              <div class="d-flex align-items-center justify-content-center rounded-3 text-white" style="width: 36px; height: 36px; background: linear-gradient(135deg, #2563EB, #4F46E5);">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <span style="font-family: 'Poppins', sans-serif; font-weight: 800; letter-spacing: -0.03em;">CareerPro</span>
+            </a>
+            <p class="text-muted small mb-4" style="line-height: 1.6;">
+              Redefining career development. Providing computer science graduates and students with adaptive tech evaluations, resume structures, and placement analytics tools.
+            </p>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-white opacity-70 hover-opacity-100 fs-5"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="#" class="text-white opacity-70 hover-opacity-100 fs-5"><i class="fa-brands fa-github"></i></a>
+              <a href="#" class="text-white opacity-70 hover-opacity-100 fs-5"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="text-white opacity-70 hover-opacity-100 fs-5"><i class="fa-brands fa-discord"></i></a>
+            </div>
+          </div>
+          
+          <div class="col-6 col-md-3 col-lg-2">
+            <h6 class="text-white fw-bold mb-3" style="font-family: 'Poppins', sans-serif;">Platform</h6>
+            <ul class="list-unstyled d-flex flex-column gap-2 small">
+              <li><a href="#features" class="text-muted hover-text-white" style="text-decoration: none;">Aptitude Assessments</a></li>
+              <li><a href="#features" class="text-muted hover-text-white" style="text-decoration: none;">Roadmaps Compiler</a></li>
+              <li><a href="#features" class="text-muted hover-text-white" style="text-decoration: none;">ATS Resume Editor</a></li>
+              <li><a href="#features" class="text-muted hover-text-white" style="text-decoration: none;">Placement Matchers</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-3 col-lg-2">
+            <h6 class="text-white fw-bold mb-3" style="font-family: 'Poppins', sans-serif;">Resources</h6>
+            <ul class="list-unstyled d-flex flex-column gap-2 small">
+              <li><a href="#technology" class="text-muted hover-text-white" style="text-decoration: none;">Documentation</a></li>
+              <li><a href="#about" class="text-muted hover-text-white" style="text-decoration: none;">Syllabus Metrics</a></li>
+              <li><a href="#" class="text-muted hover-text-white" style="text-decoration: none;">Support Centre</a></li>
+              <li><a href="#" class="text-muted hover-text-white" style="text-decoration: none;">SaaS API Link</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-5 col-lg-3">
+            <h6 class="text-white fw-bold mb-3" style="font-family: 'Poppins', sans-serif;">Subscribe to Updates</h6>
+            <p class="text-muted small mb-3">Receive notification logs about fresh vacancies and exam tracks.</p>
+            <div class="d-flex gap-2">
+              <input type="email" class="form-control bg-dark border-secondary text-white small" placeholder="operator@email.com" style="border-radius: 50px; font-size: 13px; padding-left: 15px; box-shadow: none;">
+              <button class="btn btn-premium-primary btn-sm px-3"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-top pt-4 text-center" style="border-color: rgba(255,255,255,0.05) !important;">
+          <p class="text-muted small mb-0">&copy; 2026 CareerPro – Guidance and Assessments Platform. Built for engineering demonstrations.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/utils.js"></script>
+    <script>
+      // Scroll handling for frosted glass Navbar transition
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 20) {
+          navbar.classList.add("navbar-scrolled");
+        } else {
+          navbar.classList.remove("navbar-scrolled");
+        }
+      });
+
+      // Maintain contact form listener exactly as originally declared
+      document.getElementById("contact-form")?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Thank you for your response! We will get back to you shortly.");
+        e.target.reset();
+      });
+    </script>
+  </body>
+</html>

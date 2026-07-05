@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Roadmap – CareerPro</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <style>
+      /* Timeline Styling inside learning roadmap */
+      .roadmap-timeline {
+        position: relative;
+        padding-left: 32px;
+        border-left: 3px solid var(--gray-medium);
+      }
+      
+      .roadmap-stage {
+        position: relative;
+        margin-bottom: 40px;
+      }
+
+      .roadmap-stage::after {
+        content: '';
+        position: absolute;
+        left: -43px;
+        top: 6px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: var(--white);
+        border: 4px solid var(--blue-primary);
+        z-index: 2;
+        transition: var(--transition-smooth);
+      }
+
+      .roadmap-stage.completed::after {
+        background-color: #28a745;
+        border-color: #28a745;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="app-container">
+      <!-- Dynamic Sidebar Container -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main Content Area -->
+      <div class="main-wrapper">
+        <!-- Dynamic Top Navbar Container -->
+        <div id="topbar-container"></div>
+
+        <!-- Page Content -->
+        <main class="page-content fade-in">
+          
+          <div class="row mb-4">
+            <div class="col-12">
+              <h2 class="dashboard-title"><i class="fa-solid fa-road text-primary me-2"></i>Full Stack Developer Curriculum Roadmap</h2>
+              <p class="text-muted small">A curated pathway structured to take you from core system engineering foundations to enterprise-ready production deployment frameworks.</p>
+            </div>
+          </div>
+
+          <!-- Overall Roadmap Progress widget -->
+          <div class="card p-4 mb-4">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="fw-bold text-dark small" id="roadmap-progress-text">Overall Roadmap Progress: 25% (1/4 Milestones Checked)</span>
+            </div>
+            <div class="progress" style="height: 12px;">
+              <div class="progress-bar bg-success" id="roadmap-progress-bar" role="progressbar" style="width: 25%"></div>
+            </div>
+          </div>
+
+          <!-- Timeline content container -->
+          <div class="roadmap-timeline">
+            
+            <!-- Stage 1 -->
+            <div class="roadmap-stage">
+              <div class="card p-4">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2 mb-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <input class="form-check-input roadmap-checkbox" type="checkbox" id="cb-stage-1" style="transform: scale(1.3); cursor: pointer;" checked>
+                    <h4 class="text-dark fw-bold mb-0">Stage 1: Frontend Core Foundations</h4>
+                  </div>
+                  <span class="badge bg-success-subtle text-success px-3 py-1.5 rounded-pill small">Completed</span>
+                </div>
+                <p class="text-muted small">Master syntactic structures, semantics layouts, and responsive responsive designs inside browsers.</p>
+                
+                <h6 class="fw-bold text-dark mt-3 mb-2">Curated Course Lists</h6>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded bg-light-blue border-primary-subtle" style="background-color: rgba(13, 110, 253, 0.02) !important;">
+                      <div class="fw-bold text-dark small">HTML5 Semantic layouts & CSS Grid</div>
+                      <span class="text-muted extra-small" style="font-size: 0.75rem;">Duration: 6 hrs &bull; freeCodeCamp</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded bg-light-blue border-primary-subtle" style="background-color: rgba(13, 110, 253, 0.02) !important;">
+                      <div class="fw-bold text-dark small">Modern ES6 JS Syntax & DOM Controllers</div>
+                      <span class="text-muted extra-small" style="font-size: 0.75rem;">Duration: 12 hrs &bull; freeCodeCamp</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="info-label">Hands-on milestone project</div>
+                <div class="text-dark small fw-bold">Interact Dashboard Interface using local storage parameters</div>
+              </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="roadmap-stage">
+              <div class="card p-4">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2 mb-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <input class="form-check-input roadmap-checkbox" type="checkbox" id="cb-stage-2" style="transform: scale(1.3); cursor: pointer;">
+                    <h4 class="text-dark fw-bold mb-0">Stage 2: Advanced React Frameworks</h4>
+                  </div>
+                  <span class="badge bg-warning-subtle text-warning px-3 py-1.5 rounded-pill small">Active</span>
+                </div>
+                <p class="text-muted small">Build modular structures, state lifecycles, and render single page web designs seamlessly.</p>
+                
+                <h6 class="fw-bold text-dark mt-3 mb-2">Curated Course Lists</h6>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded">
+                      <div class="fw-bold text-dark small">React Hooks, State Management & Routing</div>
+                      <span class="text-muted extra-small" style="font-size: 0.75rem;">Duration: 15 hrs &bull; Coursera</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded">
+                      <div class="fw-bold text-dark small">Bootstrap 5 Tailwind Integration UI components</div>
+                      <span class="text-muted extra-small" style="font-size: 0.75rem;">Duration: 8 hrs &bull; freeCodeCamp</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="info-label">Hands-on milestone project</div>
+                <div class="text-dark small fw-bold">EcoTrack Carbon Footprint Estimator Portal</div>
+              </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="roadmap-stage">
+              <div class="card p-4">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2 mb-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <input class="form-check-input roadmap-checkbox" type="checkbox" id="cb-stage-3" style="transform: scale(1.3); cursor: pointer;">
+                    <h4 class="text-dark fw-bold mb-0">Stage 3: Cloud & Backend Orchestrations</h4>
+                  </div>
+                  <span class="badge bg-light text-muted border px-3 py-1.5 rounded-pill small">Locked</span>
+                </div>
+                <p class="text-muted small">Deploy Node server routers, SQL database triggers, and API gateways in isolated container clusters.</p>
+                
+                <h6 class="fw-bold text-dark mt-3 mb-2">Curated Course Lists</h6>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded">
+                      <div class="fw-bold text-dark small">Express Node API Routings & SQL schema structures</div>
+                      <span class="text-muted extra-small" style="font-size: 0.75rem;">Duration: 18 hrs &bull; Udemy</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded">
+                      <div class="fw-bold text-dark small">AWS Cloud Services (S3, Lambda, EC2)</div>
+                      <span class="text-muted extra-small" style="font-size: 0.75rem;">Duration: 10 hrs &bull; AWS Academy</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="info-label">Hands-on milestone project</div>
+                <div class="text-dark small fw-bold">DocuSum AI Document Summarizer Serverless App</div>
+              </div>
+            </div>
+
+            <!-- Stage 4 -->
+            <div class="roadmap-stage">
+              <div class="card p-4">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2 mb-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <input class="form-check-input roadmap-checkbox" type="checkbox" id="cb-stage-4" style="transform: scale(1.3); cursor: pointer;">
+                    <h4 class="text-dark fw-bold mb-0">Stage 4: Placement Interview Preparation</h4>
+                  </div>
+                  <span class="badge bg-light text-muted border px-3 py-1.5 rounded-pill small">Locked</span>
+                </div>
+                <p class="text-muted small">Solve algorithmic DSA problems, behavioral situational prompts, and complete system architect designs.</p>
+                
+                <h6 class="fw-bold text-dark mt-3 mb-2">Practice Platforms Suggestives</h6>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded">
+                      <div class="fw-bold text-dark small">Algorithmic DSA Foundations</div>
+                      <span class="text-muted extra-small" style="font-size: 0.75rem;">Practice Site: LeetCode (50 curated problems)</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded">
+                      <div class="fw-bold text-dark small">Mock Technical Interrogations</div>
+                      <span class="text-muted extra-small" style="font-size: 0.75rem;">Resource: Pramp (2 mock peer interviews)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </main>
+      </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/roadmap.js"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Recommendations – CareerPro</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+  </head>
+  <body>
+
+    <div class="app-container">
+      <!-- Dynamic Sidebar Container -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main Content Area -->
+      <div class="main-wrapper">
+        <!-- Dynamic Top Navbar Container -->
+        <div id="topbar-container"></div>
+
+        <!-- Page Content -->
+        <main class="page-content fade-in">
+          
+          <div class="row mb-4">
+            <div class="col-12">
+              <h2 class="dashboard-title"><i class="fa-solid fa-compass text-primary me-2"></i>Career Suitability & Guidance</h2>
+              <p class="text-muted small">Our algorithm matches your core skills, certification paths, and assessment outcomes against industry profiles to find your perfect professional role.</p>
+            </div>
+          </div>
+
+          <!-- Injected Careers List Cards container -->
+          <div id="career-match-list">
+            <!-- Loaded dynamically by recommendation.js -->
+            <div class="text-center p-5 bg-white border rounded">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Calculating Match Factors...</span>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/recommendation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Talent Assessment – CareerPro</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/assessment.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+  </head>
+  <body>
+
+    <div class="app-container">
+      <!-- Dynamic Sidebar Container -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main Content Area -->
+      <div class="main-wrapper">
+        <!-- Dynamic Top Navbar Container -->
+        <div id="topbar-container"></div>
+
+        <!-- Page Content -->
+        <main class="page-content fade-in">
+          
+          <div class="row mb-4">
+            <div class="col-12">
+              <h2 class="dashboard-title"><i class="fa-solid fa-circle-check text-primary me-2"></i>Technical Talent Assessment</h2>
+              <p class="text-muted small">Solve technical aptitude, psychometrics, logical reasonings, and soft skills problems to verify suitability indexes.</p>
+            </div>
+          </div>
+
+          <!-- Assessment grid layout -->
+          <div class="assessment-layout">
+            
+            <!-- Left Column: Question Area -->
+            <div class="question-container">
+              <!-- Progress indicator -->
+              <div class="card p-3 mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                  <span id="question-category" class="fw-bold text-dark small">Technical Section</span>
+                  <span id="exam-progress-text" class="text-primary small">Completed: 0%</span>
+                </div>
+                <div class="progress" style="height: 6px;">
+                  <div class="progress-bar bg-primary" id="exam-progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <!-- Question Statement & Options card -->
+              <div class="card question-card">
+                <div>
+                  <div class="question-text text-dark" id="question-text">
+                    Loading question statements...
+                  </div>
+                  
+                  <div class="option-container" id="options-list">
+                    <!-- Options injected dynamically by assessment.js -->
+                  </div>
+                </div>
+
+                <!-- Card Footer controls -->
+                <div class="d-flex justify-content-between align-items-center border-top pt-4">
+                  <button class="btn btn-outline-secondary" id="prev-btn"><i class="fa-solid fa-arrow-left me-2"></i>Previous</button>
+                  <button class="btn btn-outline-secondary" id="bookmark-btn"><i class="fa-regular fa-bookmark me-2"></i>Flag Question</button>
+                  <button class="btn btn-outline-danger" id="clear-btn"><i class="fa-solid fa-rotate-left me-2"></i>Clear Option</button>
+                  
+                  <button class="btn btn-primary" id="next-btn">Next <i class="fa-solid fa-arrow-right ms-2"></i></button>
+                  <button class="btn btn-success d-none" id="submit-exam-btn">Submit Exam <i class="fa-solid fa-paper-plane ms-2"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Info, Palette & Timer -->
+            <div class="assessment-sidebar">
+              <!-- Floating timer -->
+              <div class="timer-panel">
+                <div class="info-label text-uppercase mb-2">Time Remaining</div>
+                <div class="timer-display" id="timer-display">10:00</div>
+              </div>
+
+              <!-- Question Palette Grid panel -->
+              <div class="card palette-container">
+                <h6 class="fw-bold text-dark mb-3">Question Palette</h6>
+                
+                <div class="palette-grid" id="palette-grid">
+                  <!-- Buttons Injected -->
+                </div>
+
+                <hr class="my-3">
+
+                <!-- Legend descriptions -->
+                <div class="palette-legend text-muted">
+                  <div class="legend-item">
+                    <span class="legend-color bg-success"></span>
+                    <span>Answered</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-color bg-warning"></span>
+                    <span>Flagged</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-color border" style="background-color: var(--white);"></span>
+                    <span>Unvisited</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-color" style="border: 2px solid var(--blue-primary); background-color: var(--white);"></span>
+                    <span>Current</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </main>
+      </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/assessment.js"></script>
+  </body>
+</html>

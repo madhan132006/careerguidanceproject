@@ -1,0 +1,75 @@
+/* Animations.css - Micro-interactions, transitions, and slide/fade entrance keyframes */
+
+/* Fade In entrances */
+.fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered entrance classes */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+
+/* Scale Hover effect */
+.hover-scale {
+  transition: var(--transition-smooth);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Red Pulsing (for dangerous states or low-timers) */
+.pulse-timer {
+  animation: pulse-border 1.5s infinite alternate;
+}
+
+@keyframes pulse-border {
+  from {
+    border-color: rgba(220, 53, 69, 0.4);
+    box-shadow: 0 0 4px rgba(220, 53, 69, 0.1);
+  }
+  to {
+    border-color: rgba(220, 53, 69, 1);
+    box-shadow: 0 0 12px rgba(220, 53, 69, 0.4);
+  }
+}
+
+/* Shaking animation for validation failures */
+.shake-element {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* Soft pulse background skeleton loader */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-bg {
+  background: linear-gradient(90deg, #f0f2f5 25%, #e1e4e8 50%, #f0f2f5 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+[data-theme="dark"] .shimmer-bg {
+  background: linear-gradient(90deg, #112240 25%, #1b2f4f 50%, #112240 75%);
+}

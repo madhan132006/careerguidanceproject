@@ -1,0 +1,6 @@
+{
+  "name": "CareerPro",
+  "description": "AI Powered Career Guidance and Talent Assessment Platform",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

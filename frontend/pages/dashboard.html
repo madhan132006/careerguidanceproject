@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard – CareerPro</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+  </head>
+  <body>
+
+    <div class="app-container">
+      <!-- Dynamic Sidebar Container -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main Content Area -->
+      <div class="main-wrapper">
+        <!-- Dynamic Top Navbar Container -->
+        <div id="topbar-container"></div>
+
+        <!-- Page Content -->
+        <main class="page-content fade-in">
+          
+          <!-- Welcome and Quick Statistics Section -->
+          <div class="row g-4 mb-4">
+            <div class="col-12">
+              <div class="card p-4 bg-gradient-navy text-white d-flex flex-row justify-content-between align-items-center">
+                <div>
+                  <h2 class="fw-bold text-white mb-2" id="dashboard-welcome-title">Welcome back! 👋</h2>
+                  <p class="text-muted small mb-0" style="color: #a8b2d1 !important;">Your skills are mapping perfectly against current industry placements. Take a quick aptitude assessment to boost scores.</p>
+                </div>
+                <div class="d-none d-md-block fs-1 text-info opacity-75">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Statistics cards -->
+          <div class="row g-4 mb-4">
+            <div class="col-md-3">
+              <div class="card stat-card">
+                <div>
+                  <div class="text-muted small fw-bold">Assessments taken</div>
+                  <h3 class="fw-bold text-dark mt-1 mb-0">3</h3>
+                  <span class="text-success small fw-bold"><i class="fa-solid fa-arrow-trend-up me-1"></i>+10% vs last week</span>
+                </div>
+                <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card stat-card">
+                <div>
+                  <div class="text-muted small fw-bold">Resume completion</div>
+                  <h3 class="fw-bold text-dark mt-1 mb-0" id="resume-completion-pct">85%</h3>
+                  <span class="text-primary small fw-bold">Needs key details</span>
+                </div>
+                <div class="stat-icon green"><i class="fa-solid fa-file-pdf"></i></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card stat-card">
+                <div>
+                  <div class="text-muted small fw-bold">Career compatibility</div>
+                  <h3 class="fw-bold text-dark mt-1 mb-0">95%</h3>
+                  <span class="text-success small fw-bold">Front End Match</span>
+                </div>
+                <div class="stat-icon orange"><i class="fa-solid fa-compass"></i></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card stat-card">
+                <div>
+                  <div class="text-muted small fw-bold">Pending alerts</div>
+                  <h3 class="fw-bold text-dark mt-1 mb-0" id="unread-alerts-count">2</h3>
+                  <span class="text-muted small">Notifications</span>
+                </div>
+                <div class="stat-icon purple"><i class="fa-solid fa-bell"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Assessment & Curriculum progress rows -->
+          <div class="row g-4 mb-4">
+            <div class="col-md-8">
+              <div class="card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h5 class="fw-bold text-dark mb-0"><i class="fa-solid fa-chart-line text-primary me-2"></i>Curriculum Assessment Progress</h5>
+                  <a href="/pages/assessment.html" class="btn btn-sm btn-outline-primary rounded-pill px-3">Start New Exam</a>
+                </div>
+                
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between mb-1 small fw-bold text-dark">
+                    <span>Technical Aptitude</span>
+                    <span class="text-success">85% (Excellent)</span>
+                  </div>
+                  <div class="progress" style="height: 10px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between mb-1 small fw-bold text-dark">
+                    <span>Logical Reasoning</span>
+                    <span class="text-primary">70% (Good)</span>
+                  </div>
+                  <div class="progress" style="height: 10px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"></div>
+                  </div>
+                </div>
+
+                <div class="mb-2">
+                  <div class="d-flex justify-content-between mb-1 small fw-bold text-dark">
+                    <span>Verbal Ability</span>
+                    <span class="text-success">90% (Excellent)</span>
+                  </div>
+                  <div class="progress" style="height: 10px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 90%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile completion metrics slider -->
+            <div class="col-md-4">
+              <div class="card p-4 h-100">
+                <h5 class="fw-bold text-dark mb-4"><i class="fa-solid fa-user-check text-primary me-2"></i>Profile Verification</h5>
+                <div class="text-center py-3">
+                  <div class="display-3 fw-bold text-primary mb-2" id="profile-completion-pct">85%</div>
+                  <p class="text-muted small px-3">Complete academic credentials and skills list to unlock direct interviews matching metrics.</p>
+                </div>
+                <div class="progress mb-4" style="height: 8px;">
+                  <div class="progress-bar bg-gradient-blue" id="profile-completion-bar" role="progressbar" style="width: 85%"></div>
+                </div>
+                <a href="/pages/profile.html" class="btn btn-primary w-100"><i class="fa-solid fa-arrow-pointer me-2"></i>Edit Student Profile</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions & Activities Logs -->
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card p-4 h-100">
+                <h5 class="fw-bold text-dark mb-4"><i class="fa-solid fa-star text-primary me-2"></i>Quick Actions Launchpad</h5>
+                <div class="row g-3">
+                  <div class="col-6">
+                    <a href="/pages/assessment.html" class="quick-action-btn text-decoration-none text-dark">
+                      <i class="fa-solid fa-circle-check"></i>
+                      <span class="fw-bold small">Take Assessment</span>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="/pages/resume-builder.html" class="quick-action-btn text-decoration-none text-dark">
+                      <i class="fa-solid fa-file-pdf"></i>
+                      <span class="fw-bold small">Update Resume</span>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="/pages/career-recommendation.html" class="quick-action-btn text-decoration-none text-dark">
+                      <i class="fa-solid fa-compass"></i>
+                      <span class="fw-bold small">Career Matcher</span>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="/pages/learning-roadmap.html" class="quick-action-btn text-decoration-none text-dark">
+                      <i class="fa-solid fa-road"></i>
+                      <span class="fw-bold small">Open Roadmap</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card p-4 h-100">
+                <h5 class="fw-bold text-dark mb-4"><i class="fa-solid fa-clock-rotate-left text-primary me-2"></i>Recent Student Activities</h5>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-3 pb-3 border-bottom d-flex gap-3 align-items-center">
+                    <div class="badge bg-light-blue text-primary p-2 fs-5"><i class="fa-solid fa-circle-check"></i></div>
+                    <div>
+                      <h6 class="text-dark fw-bold mb-1 small">Completed Technical Aptitude Exam</h6>
+                      <p class="text-muted small mb-0">Scored 85/100 &bull; 15 mins ago</p>
+                    </div>
+                  </li>
+                  <li class="mb-3 pb-3 border-bottom d-flex gap-3 align-items-center">
+                    <div class="badge bg-light-blue text-primary p-2 fs-5"><i class="fa-solid fa-road"></i></div>
+                    <div>
+                      <h6 class="text-dark fw-bold mb-1 small">Activated Full Stack Roadmap</h6>
+                      <p class="text-muted small mb-0">Course modules compiled successfully &bull; 1 day ago</p>
+                    </div>
+                  </li>
+                  <li class="mb-0 d-flex gap-3 align-items-center">
+                    <div class="badge bg-light-blue text-primary p-2 fs-5"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                      <h6 class="text-dark fw-bold mb-1 small">Updated Resume Details</h6>
+                      <p class="text-muted small mb-0">Added AWS Practitioner Certificate &bull; 3 days ago</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/dashboard.js"></script>
+  </body>
+</html>

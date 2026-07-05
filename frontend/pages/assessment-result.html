@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assessment Results – CareerPro</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/assessment.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+  </head>
+  <body>
+
+    <div class="app-container">
+      <!-- Dynamic Sidebar Container -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main Content Area -->
+      <div class="main-wrapper">
+        <!-- Dynamic Top Navbar Container -->
+        <div id="topbar-container"></div>
+
+        <!-- Page Content -->
+        <main class="page-content fade-in">
+          
+          <div class="row mb-4">
+            <div class="col-12 text-center">
+              <span class="badge bg-success px-3 py-2 rounded-pill mb-2"><i class="fa-solid fa-circle-check me-2"></i>Exam Finished Successfully</span>
+              <h2 class="fw-bold text-dark">Your Assessment Analytics</h2>
+              <p class="text-muted small">Comprehensive sectional accuracy breakdown, performance metrics, and learning suggestives.</p>
+            </div>
+          </div>
+
+          <!-- Score Card and Stats Grid -->
+          <div class="row g-4 mb-4 justify-content-center">
+            <div class="col-md-5">
+              <div class="card p-4 text-center h-100">
+                <h5 class="fw-bold text-dark mb-4">Performance Summary</h5>
+                
+                <!-- Circular accuracy chart -->
+                <div class="circular-progress-wrapper mb-3">
+                  <svg class="circular-progress" width="150" height="150">
+                    <circle class="circular-progress-bg" cx="75" cy="75" r="60"></circle>
+                    <circle class="circular-progress-value" cx="75" cy="75" r="60" id="result-radial-value" stroke-dasharray="377" stroke-dashoffset="377"></circle>
+                  </svg>
+                  <div class="circular-progress-text" id="result-accuracy-pct">0%</div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-6 border-end">
+                    <div class="info-label">Overall Score</div>
+                    <div class="h3 fw-bold text-primary mb-0" id="result-score">0 / 80</div>
+                  </div>
+                  <div class="col-6">
+                    <div class="info-label">Performance Level</div>
+                    <div class="h3 fw-bold text-success mb-0" id="result-level">Good</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-7">
+              <div class="card p-4 h-100">
+                <h5 class="fw-bold text-dark mb-4">Sectional Analysis</h5>
+                <div class="row g-3" id="sectional-progress-list">
+                  <!-- Sectional items loaded dynamically -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Strengths, Weaknesses & Career Suggestions -->
+          <div class="row g-4 mb-4">
+            <div class="col-md-6">
+              <div class="card p-4 h-100 border-success-subtle bg-success-subtle" style="background-color: rgba(40, 167, 69, 0.02) !important;">
+                <h5 class="fw-bold text-success mb-3"><i class="fa-solid fa-circle-check me-2"></i>My Identified Strengths</h5>
+                <ul class="list-unstyled mb-0" id="strengths-list">
+                  <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i><strong>Excellent Verbal Ability:</strong> Capable of analyzing complex texts, communications, and structures.</li>
+                  <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i><strong>Strong Technical Foundations:</strong> Outstanding results in core programming, structures, and systems logic.</li>
+                  <li class="mb-0"><i class="fa-solid fa-check text-success me-2"></i><strong>Professional Soft Skills:</strong> Great resolution capacity and empathic communication models.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card p-4 h-100 border-warning-subtle" style="background-color: rgba(253, 126, 20, 0.02) !important;">
+                <h5 class="fw-bold text-warning mb-3"><i class="fa-solid fa-circle-exclamation me-2"></i>Focus Areas for Practice</h5>
+                <ul class="list-unstyled mb-0" id="weaknesses-list">
+                  <li class="mb-2"><i class="fa-solid fa-triangle-exclamation text-warning me-2"></i><strong>Logical Reasoning Speed:</strong> Needs practicing with speed timers and patterns structures.</li>
+                  <li class="mb-0"><i class="fa-solid fa-triangle-exclamation text-warning me-2"></i><strong>Deep Cloud Architecture:</strong> Requires AWS/Azure learning milestones to balance matches.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Learning Suggestions & Roadmap Launch -->
+          <div class="card p-4 mb-4">
+            <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-graduation-cap text-primary me-2"></i>Targeted Learning Suggestions</h5>
+            <p class="text-muted small mb-4">Based on your score, the following curated resources are recommended to secure full compatibility matches immediately.</p>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="p-3 border rounded">
+                  <h6 class="fw-bold text-dark mb-1">DSA & Complexity Theory</h6>
+                  <p class="text-muted small mb-2">Enhance worst-case analysis speed on tree searches and array parsing.</p>
+                  <a href="/pages/learning-roadmap.html" class="small fw-bold text-primary">Start Course &bull; 15 Units</a>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 border rounded">
+                  <h6 class="fw-bold text-dark mb-1">AWS Architect Foundation</h6>
+                  <p class="text-muted small mb-2">Develop practical server models, containers orchestration, and DB schemas.</p>
+                  <a href="/pages/learning-roadmap.html" class="small fw-bold text-primary">Start Course &bull; 20 Units</a>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 border rounded">
+                  <h6 class="fw-bold text-dark mb-1">Logical Reasoning Masterclass</h6>
+                  <p class="text-muted small mb-2">Practice daily pattern sequences and conditional arguments blocks.</p>
+                  <a href="/pages/learning-roadmap.html" class="small fw-bold text-primary">Start Course &bull; 10 Units</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <button class="btn btn-outline-primary px-4 py-2.5 rounded-pill" id="btn-print-report"><i class="fa-solid fa-print me-2"></i>Print / Download Report</button>
+            <a href="/pages/career-recommendation.html" class="btn btn-primary px-4 py-2.5 rounded-pill"><i class="fa-solid fa-compass me-2"></i>View Suitable Careers</a>
+          </div>
+
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module">
+      import { checkAuth, injectLayout } from "/js/utils.js";
+      
+      document.addEventListener("DOMContentLoaded", () => {
+        checkAuth();
+        injectLayout("assessment");
+
+        // Load latest result from Local Storage
+        const result = JSON.parse(localStorage.getItem("careerpro_latest_result"));
+        if (result) {
+          // Score and Level
+          document.getElementById("result-score").textContent = `${result.correctCount * 10} / ${result.totalQuestions * 10}`;
+          document.getElementById("result-level").textContent = result.performanceLevel;
+          document.getElementById("result-accuracy-pct").textContent = `${result.accuracy}%`;
+
+          // Circle Animation dashoffset calculation
+          // circumference is 2 * PI * r => 2 * 3.1415 * 60 ≈ 377
+          const offset = 377 - (377 * result.accuracy) / 100;
+          const radialValue = document.getElementById("result-radial-value");
+          if (radialValue) {
+            radialValue.style.strokeDashoffset = offset;
+          }
+
+          // Render sectional progress lists
+          const secList = document.getElementById("sectional-progress-list");
+          if (secList) {
+            const sections = Object.keys(result.sectionScores);
+            secList.innerHTML = sections.map(sec => {
+              const score = result.sectionScores[sec];
+              const total = result.sectionTotals[sec];
+              const pct = total > 0 ? Math.round((score / total) * 100) : 0;
+              const barColor = pct >= 80 ? 'bg-success' : pct >= 60 ? 'bg-primary' : 'bg-warning';
+
+              return `
+                <div class="col-md-6 mb-3">
+                  <div class="d-flex justify-content-between mb-1 small fw-bold text-dark">
+                    <span>${sec} Section</span>
+                    <span>${pct}% (${score}/${total})</span>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar ${barColor}" style="width: ${pct}%"></div>
+                  </div>
+                </div>
+              `;
+            }).join("");
+          }
+        } else {
+          // Default fallbacks if no result found
+          document.getElementById("result-accuracy-pct").textContent = "85%";
+          document.getElementById("result-radial-value")?.setAttribute("stroke-dashoffset", 56);
+          document.getElementById("result-score").textContent = "70 / 80";
+        }
+
+        // Print Report event trigger
+        document.getElementById("btn-print-report")?.addEventListener("click", () => {
+          window.print();
+        });
+      });
+    </script>
+  </body>
+</html>
